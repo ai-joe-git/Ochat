@@ -868,6 +868,10 @@
     </div>
 
     <script>
+        // Add this detection in the app
+        const isRemoteDeployment = window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1';
+        const isHttpsToHttp = window.location.protocol === 'https:' && ollamaHost.startsWith('http:');
+
         // State
         let ollamaHost = localStorage.getItem('ollamaHost') || 'http://localhost:11434';
         let currentModel = localStorage.getItem('currentModel') || '';
